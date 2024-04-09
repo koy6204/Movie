@@ -1,16 +1,18 @@
 package com.koy.movie.controller;
 
+import com.koy.movie.dto.RecoDto;
 import com.koy.movie.model.Genres;
 import com.koy.movie.model.Movies;
 import com.koy.movie.repository.MovieRepository;
 import com.koy.movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -25,7 +27,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @GetMapping("/movies")
-    public ResponseEntity pgMovies(@PageableDefault(size = 100)Pageable pageable) {
+    public ResponseEntity pgMovies(@PageableDefault(size = 100) Pageable pageable) {
 
         return movieService.pgMovies(pageable);
     }
