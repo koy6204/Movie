@@ -1,4 +1,4 @@
-package com.koy.movie.dto;
+package com.koy.movie.movie;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,13 +15,23 @@ public class RecoDto {
 
     private Long userId;
     private List<MovieData> pickedMovies;
+
+
+
 }
 
 @Data
 @Builder
 class MovieData {
-    private Long tId;
-    private Long movieId;
-    private Double rating;
+
+    Long tId;
+    Long movieId;
+    Double rating;
+
 }
+
+
+
+
+
 

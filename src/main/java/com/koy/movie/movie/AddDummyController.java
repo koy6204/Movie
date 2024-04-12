@@ -1,9 +1,7 @@
-package com.koy.movie.controller;
+package com.koy.movie.movie;
 
-import com.koy.movie.model.Movies;
-import com.koy.movie.repository.GenresRepository;
-import com.koy.movie.repository.MovieRepository;
-import com.koy.movie.service.GenreService;
+import com.koy.movie.genre.GenresRepository;
+import com.koy.movie.genre.GenreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

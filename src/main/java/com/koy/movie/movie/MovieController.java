@@ -1,10 +1,7 @@
-package com.koy.movie.controller;
+package com.koy.movie.movie;
 
-import com.koy.movie.dto.RecoDto;
-import com.koy.movie.model.Genres;
-import com.koy.movie.model.Movies;
-import com.koy.movie.repository.MovieRepository;
-import com.koy.movie.service.MovieService;
+import com.koy.movie.genre.Genres;
+//import com.koy.movie.model.RecoDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -40,6 +37,6 @@ public class MovieController {
 
         Set<Genres> selectBestInKeys = movieService.selectKeyInMap(pickedGenresWithSort);
 
-        return movieRepository.findByGenres(selectBestInKeys, recoDto);
+        return movieRepository.findByGenresIn(selectBestInKeys, recoDto);
     }
 }

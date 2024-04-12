@@ -1,6 +1,5 @@
-package com.koy.movie.repository;
+package com.koy.movie.genre;
 
-import com.koy.movie.model.Genres;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

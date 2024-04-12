@@ -1,5 +1,6 @@
-package com.koy.movie.model;
+package com.koy.movie.movie;
 
+import com.koy.movie.genre.Genres;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,8 +26,8 @@ public class Movies {
     @ManyToMany
     private Set<Genres> genres;
 
-//    public MovieData toMovieData() {
-//        return MovieData.builder().movieId(this.id).tId(this.tId).rating(4.0)build();
-//    }
+    public MovieData toMovieData() {
+        return MovieData.builder().movieId(this.id).tId(this.tId).rating(4.0).build();
+    }
 
 }

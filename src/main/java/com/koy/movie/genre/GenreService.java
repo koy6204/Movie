@@ -1,7 +1,5 @@
-package com.koy.movie.service;
+package com.koy.movie.genre;
 
-import com.koy.movie.model.Genres;
-import com.koy.movie.repository.GenresRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

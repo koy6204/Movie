@@ -1,10 +1,7 @@
-package com.koy.movie.service;
+package com.koy.movie.movie;
 
-import com.koy.movie.dto.RecoDto;
-import com.koy.movie.model.Genres;
-import com.koy.movie.model.Movies;
-import com.koy.movie.repository.GenresRepository;
-import com.koy.movie.repository.MovieRepository;
+import com.koy.movie.genre.Genres;
+import com.koy.movie.genre.GenresRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

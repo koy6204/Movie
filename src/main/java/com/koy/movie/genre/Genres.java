@@ -1,4 +1,4 @@
-package com.koy.movie.model;
+package com.koy.movie.genre;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

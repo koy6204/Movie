@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Movie Selection</title>
+  <!-- 여기에 필요한 CSS와 JavaScript 파일을 포함하세요 -->
+
+  <style>
+    .card {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr); /* 7개의 칼럼을 생성합니다 */
+      gap: 10px; /* 카드 사이의 간격을 설정합니다 */
+    }
+    .posterCard {
+      width: 150px;
+      height: 250px;
+    }
+
+  </style>
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:if="${not #lists.isEmpty(movieData)}" class="cards">
+  <form th:action="@{/submitMovieRatings}" method="post">
+    <div th:each="movie, iterStat : ${movieData}" th:if="${iterStat.count <= 10}" class="card" th:key="${movie.title}">
+      <div class="poster" th:onclick="'handleClick(' + ${iterStat.index} + ')'">
+        <img th:alt="${movie.title}" th:src="${'https://image.tmdb.org/t/p/w300' + movie.posterPath}" class="posterCard"/>
+      </div>
+
+<!--      <div class="content">-->
+<!--        <div class="title" th:text="${movie.title}">Movie Title</div>-->
+<!--        <div class="overview" th:onclick="'handleClick(' + ${iterStat.index} + '); handleRating(0,' + ${iterStat.index} + '); refreshCard(' + ${iterStat.index} + ');'" th:text="${movie.overview}">Movie Overview</div>-->
+<!--        <div class="foot">-->
+<!--          &lt;!&ndash; 평점 입력 부분은 자바스크립트와 연동되어야 하므로, 서버 사이드에서 처리하기보다는 클라이언트 사이드에서 처리하는 것이 좋습니다. &ndash;&gt;-->
+<!--          <button type="button" class="outline-primary" th:onclick="'handleStorage(' + ${iterStat.index} + ',' + ${rating[iterStat.index]} + ')'">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+<!--    <button type="submit">Submit Ratings</button>-->
+  </form>
+</div>
+<!--<div th:if="${#lists.isEmpty(movieData)}">-->
+<!--  <p>No movies available to rate.</p>-->
+<!--</div>-->
+</body>
+</html>
