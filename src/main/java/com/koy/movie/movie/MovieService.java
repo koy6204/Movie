@@ -80,23 +80,36 @@ public class MovieService {
     }
 
     //
-    public JSONObject getPopularMovies() {
-        String url = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=ko-KR&region=KR";
-        RestTemplate restTemplate = new RestTemplate();
-        String response = restTemplate.getForObject(url, String.class);
+//    public JSONObject getPopularMovies() {
+//        String url = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=ko-KR&region=KR";
+//        RestTemplate restTemplate = new RestTemplate();
+//        String response = restTemplate.getForObject(url, String.class);
+//
+//        // JSON 문자열을 JSONObject 객체로 파싱
+//        return new JSONObject(response);
+//    }
+//
+//    public JSONObject getMovieVideos(int movieId) {
+//        String url = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey + "&language=ko-KR";
+//        RestTemplate restTemplate = new RestTemplate();
+//        String response = restTemplate.getForObject(url, String.class);
+//
+//        // JSON 문자열을 JSONObject 객체로 파싱
+//        return new JSONObject(response);
+//    }
 
-        // JSON 문자열을 JSONObject 객체로 파싱
-        return new JSONObject(response);
-    }
+//    public JSONObject getRandomMovie() {
+//        // 영화 ID 범위를 설정합니다. 예시로 100부터 500까지 설정했습니다.
+//        int randomMovieId = 100 + random.nextInt(400);
+//        String url = "https://api.themoviedb.org/3/movie/" + randomMovieId + "?api_key=" + apiKey;
+//        RestTemplate restTemplate = new RestTemplate();
+//        String response = restTemplate.getForObject(url, String.class);
+//
+//        // JSON 문자열을 JSONObject 객체로 파싱
+//        return new JSONObject(response);
+//    }
 
-    public JSONObject getMovieVideos(int movieId) {
-        String url = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey + "&language=ko-KR";
-        RestTemplate restTemplate = new RestTemplate();
-        String response = restTemplate.getForObject(url, String.class);
 
-        // JSON 문자열을 JSONObject 객체로 파싱
-        return new JSONObject(response);
-    }
 
 
 }
