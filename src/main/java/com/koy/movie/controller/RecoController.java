@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class RecoController {
 
-    @GetMapping("/")
+    @GetMapping("/movieReco")
     public String moviePick() {
 
-        return "/movie/movieReco";
+        return "/view/movieReco";
     }
 
 }

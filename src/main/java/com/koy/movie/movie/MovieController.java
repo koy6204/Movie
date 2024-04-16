@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 
 import java.util.HashMap;
@@ -22,6 +23,9 @@ public class MovieController {
 
     private final MovieRepository movieRepository;
     private final MovieService movieService;
+
+    //tmdbAPI키
+//    private final String tmdbKey = "91ebb9f602d1cc08e13c77f2f2aa8ab0";
 
     @GetMapping("/movies")
     public ResponseEntity pgMovies(@PageableDefault(size = 100) Pageable pageable) {
@@ -39,4 +43,18 @@ public class MovieController {
 
         return movieRepository.findByGenresIn(selectBestInKeys, recoDto);
     }
+
+    //tmdb API 호출
+//    @GetMapping("/tmdb")
+//    public ResponseEntity<String> getMoives(){
+//        String url = "https://api.themoviedb.org/3/movie/popular?api_key=" + tmdbKey;
+//
+//        //요청하고 응답받아 반환
+//        RestTemplate restTemplate = new RestTemplate();
+//        String response = restTemplate.getForObject(url, String.class);
+//        return ResponseEntity.ok(response);
+//    }
+
+
+
 }

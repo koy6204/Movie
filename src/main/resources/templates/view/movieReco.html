@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+      <link rel="stylesheet" th:href="@{/css/movieReco.css}" >
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<!--<th:block layout:fragment="script">-->
+<!--      <script th:src="@{/js/page/home.js}"></script>-->
+<!--</th:block>-->
+
+
+  <div layout:fragment="content">
+
+
+
+<!--    <div th:if="${not #lists.isEmpty(movieData)}" class="cards">-->
+<!--      <form th:action="@{/submitMovieRatings}" method="post">-->
+<!--        <div th:each="movie, iterStat : ${movieData}" th:if="${iterStat.count <= 10}" class="card" th:key="${movie.title}">-->
+<!--          <div class="poster" th:onclick="'handleClick(' + ${iterStat.index} + ')'">-->
+<!--            <img th:alt="${movie.title}" th:src="${'https://image.tmdb.org/t/p/w300' + movie.posterPath}" class="posterCard"/>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+
+<!--    <div class="movie-container">-->
+<!--      <div th:each="movie, iterStat : ${movies}" th:classappend="${iterStat.index % 7 == 6} ? 'last' : ''" class="movie">-->
+<!--        <img th:src="@{'/images/' + ${movie.posterImage}}" alt="Movie Poster"/>-->
+<!--        <p th:text="${movie.title}">Movie Title</p>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="movie-container">
+      <div class="movie">영화1</div>
+      <div class="movie">영화2</div>
+      <div class="movie">영화3</div>
+      <div class="movie">영화4</div>
+      <div class="movie">영화5</div>
+      <div class="movie">영화6</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+      <div class="movie">영화7</div>
+
+
+      <!-- 더 많은 영화 포스터 div가 이어질 수 있습니다 -->
+    </div>
+
+
+
+
+  </div>
+
+
+</html>

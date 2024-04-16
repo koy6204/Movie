@@ -4,11 +4,13 @@ import com.koy.movie.genre.Genres;
 import com.koy.movie.genre.GenresRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -22,6 +24,7 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
     private final GenresRepository genresRepository;
+    private final String apiKey = "91ebb9f602d1cc08e13c77f2f2aa8ab0"; // TMDB API 키
 
     public ResponseEntity pgMovies(Pageable pageable) {
         Page<Movies> moviesPage = movieRepository.findAll(pageable);
@@ -76,7 +79,24 @@ public class MovieService {
 
     }
 
+    //
+    public JSONObject getPopularMovies() {
+        String url = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=ko-KR&region=KR";
+        RestTemplate restTemplate = new RestTemplate();
+        String response = restTemplate.getForObject(url, String.class);
 
+        // JSON 문자열을 JSONObject 객체로 파싱
+        return new JSONObject(response);
+    }
+
+    public JSONObject getMovieVideos(int movieId) {
+        String url = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey + "&language=ko-KR";
+        RestTemplate restTemplate = new RestTemplate();
+        String response = restTemplate.getForObject(url, String.class);
+
+        // JSON 문자열을 JSONObject 객체로 파싱
+        return new JSONObject(response);
+    }
 
 
 }

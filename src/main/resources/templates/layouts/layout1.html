@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- config -->
+<th:block th:replace="fragments/config :: configFragment"></th:block>
+<!-- header -->
+<body>
+    <!-- th:replace 속성은 해당 속성이 선언된 html 태그를 다른 html 파일로 치환. fragments 폴더 아래 header.html 파일의 "th:fragment=header" 영역을 가져옴 -->
+    <div th:replace="fragments/header::headerFragment"></div>
+
+
+    <!-- content -->
+    <div layout:fragment="content"></div>
+
+    <!-- footer -->
+    <div th:replace="fragments/footer::footerFragment"></div>
+
+</body>
+</html>
