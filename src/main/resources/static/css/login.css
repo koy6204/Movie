@@ -8,6 +8,14 @@
     /*border: 3px solid blue;*/
     height: 700px;
 }
+
+.sign-in {
+    text-align: center;
+    color: #fff;
+    font-family: "맑은 고딕 Semilight";
+    font-weight: bold;
+    font-size: 15px;
+}
 /* config.css */
 
 :root {
@@ -60,37 +68,37 @@
 
 /* layout/base.css */
 
-:root {
-    --htmlFontSize: 100%;
+/*:root {*/
+/*    --htmlFontSize: 100%;*/
 
-    --bodyBackgroundColor: #2c3338;
-    --bodyColor: var(--baseColor);
-    --bodyFontFamily: "Open Sans";
-    --bodyFontFamilyFallback: sans-serif;
-    --bodyFontSize: 0.875rem;
-    --bodyFontWeight: 400;
-    --bodyLineHeight: 1.5;
-}
+/*    --bodyBackgroundColor: #2c3338;*/
+/*    --bodyColor: var(--baseColor);*/
+/*    --bodyFontFamily: "Open Sans";*/
+/*    --bodyFontFamilyFallback: sans-serif;*/
+/*    --bodyFontSize: 0.875rem;*/
+/*    --bodyFontWeight: 400;*/
+/*    --bodyLineHeight: 1.5;*/
+/*}*/
 
-* {
-    box-sizing: inherit;
-}
+/** {*/
+/*    box-sizing: inherit;*/
+/*}*/
 
-html {
-    box-sizing: border-box;
-    font-size: var(--htmlFontSize);
-}
+/*html {*/
+/*    box-sizing: border-box;*/
+/*    font-size: var(--htmlFontSize);*/
+/*}*/
 
-body {
-    background-color: var(--bodyBackgroundColor);
-    color: var(--bodyColor);
-    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
-    font-size: var(--bodyFontSize);
-    font-weight: var(--bodyFontWeight);
-    line-height: var(--bodyLineHeight);
-    margin: 0;
-    min-block-size: 100vh;
-}
+/*body {*/
+/*    background-color: var(--bodyBackgroundColor);*/
+/*    color: var(--bodyColor);*/
+/*    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);*/
+/*    font-size: var(--bodyFontSize);*/
+/*    font-weight: var(--bodyFontWeight);*/
+/*    line-height: var(--bodyLineHeight);*/
+/*    margin: 0;*/
+/*    min-block-size: 100vh;*/
+/*}*/
 
 /* modules/anchor.css */
 

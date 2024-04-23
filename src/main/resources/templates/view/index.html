@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<!--<th:block layout:fragment="script">-->
+<!--      <script th:src="@{/js/main.js}"></script>-->
+<!--</th:block>-->
+
+
+<div layout:fragment="content">
+
+    <!--    <div class="mainContainer">-->
+
+    <!--      <div class="main">-->
+    <!--        <div class="slider slider-for">-->
+    <!--          <div><h3>1</h3></div>-->
+    <!--          <div><h3>2</h3></div>-->
+    <!--          <div><h3>3</h3></div>-->
+    <!--          <div><h3>4</h3></div>-->
+    <!--          <div><h3>5</h3></div>-->
+    <!--        </div>-->
+    <!--        <div class="slider slider-nav">-->
+    <!--          <div><h3>1</h3></div>-->
+    <!--          <div><h3>2</h3></div>-->
+    <!--          <div><h3>3</h3></div>-->
+    <!--          <div><h3>4</h3></div>-->
+    <!--          <div><h3>5</h3></div>-->
+    <!--        </div>-->
+    <!--        <div class="action">-->
+    <!--          <a href="#" data-slide="3">go to slide 3</a>-->
+    <!--          <a href="#" data-slide="4">go to slide 4</a>-->
+    <!--          <a href="#" data-slide="5">go to slide 5</a>-->
+    <!--        </div>-->
+    <!--      </div>-->
+
+    <!--    </div>-->
+
+    <div class="bgslide">
+        <div class="play_button">
+            <img src="/images/play.png">
+        </div>
+    </div>
+
+    <div class="movie-poster">
+        <h3>Popular Movies</h3>
+        <hr>
+        <div class="movie-trailer-grid">
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1 trailer-last">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+        </div>
+        <a href="#" class="view-all">View All</a>
+    </div>
+
+    <div class="movie-poster">
+        <h3>Must Watch</h3>
+        <hr>
+        <div class="movie-trailer-grid">
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+            <div class="trailer1 trailer-last">
+                <a href="#">
+                    <img src="/images/a2.jpg">
+                </a>
+            </div>
+        </div>
+        <a href="#" class="view-all">View All</a>
+    </div>
+
+
+    <!-- Video Modal -->
+    <div class="video_modal">
+        <div class="closebtn">X</div>
+        <video id="myvideo" width="100%" height="auto" controls>
+            <source src="/video/test.mp4" type="video/mp4">
+            <source src="/video/test.mp4" type="video/ogg">
+        </video>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $playbtn = $(".play_button");
+            $openvid = $(".video_modal");
+            $closevid = $(".closebtn");
+            $video = $(".myvideo").get(0)
+
+            $playbtn.click(function () {
+                $openvid.fadeIn();
+                $video.load();
+            });
+            $closevid.click(function () {
+                $openvid.fadeOut();
+            })
+        });
+    </script>
+
+
+</div>
+
+
+</html>

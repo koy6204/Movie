@@ -1,0 +1,39 @@
+#spring.application.name=movie
+#
+#spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+#spring.datasource.url=jdbc:mariadb://koydb.cf4yksm6y0zm.ap-northeast-2.rds.amazonaws.com:3306/koyDB
+#spring.datasource.username=root
+#spring.datasource.password=treesparrow
+#
+##JPA
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.format_sql=true
+#spring.jpa.show-sql=true
+#
+#spring.thymeleaf.cache=false
+#
+#jwt.secret=afjkljeflkcvdggadszvdfsdfsfef
+
+spring:
+  application:
+    name: movie
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://koydb.cf4yksm6y0zm.ap-northeast-2.rds.amazonaws.com:3306/koyDB
+    username: root
+    password: treesparrow
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  thymeleaf:
+    cache: false
+
+jwt:
+  secret: r3j3r83r2hfsdfsnvalwar2093urahaz8v89wr2b9szdf8zwfozsdf8bwfilzsdfil3f2sdf3

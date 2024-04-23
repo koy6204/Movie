@@ -3,8 +3,6 @@ package com.koy.movie.controller;
 import com.koy.movie.movie.MovieService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +19,9 @@ public class MainController {
     @Autowired
     private MovieService movieService;
 
-//    @GetMapping("/")
-//    public String main(Model model) {
-//
+    @GetMapping("/")
+    public String main(Model model) {
+
 //        JSONObject popularMovies = movieService.getPopularMovies();
 //        model.addAttribute("popularMovies", popularMovies.getJSONArray("results"));
 //
@@ -41,8 +39,8 @@ public class MainController {
 //        model.addAttribute("movieIDs",movieIDs);
 //
 //        System.out.println(movieIDs);
-//
-//        return "/view/main";
-//    }
+
+        return "view/index";
+    }
 
 }
