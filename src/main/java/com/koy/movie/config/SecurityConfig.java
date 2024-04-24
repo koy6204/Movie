@@ -16,9 +16,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig{
 
-   private JwtTokenProvider jwtTokenProvider;
+    //final없어서 의존성주입이 도ㅣ지않아 nullpointexception 발생했음
+   private final JwtTokenProvider jwtTokenProvider;
 
    @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
@@ -27,15 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                //Rest APi 이므로 basic auth 및 csrf보안을 사용하지않음
                .httpBasic().disable()
                .csrf().disable()
-               //JWT 를 사용하기 떄문에 셔션을 사용하지않음
+               //JWT 를 사용하기 떄문에 세션을 사용하지않음
                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                .and()
                .authorizeHttpRequests()
                //5.8부터 requestMatchers 사용해야함
                //해당 API에 대해서는 모든 요청을 허가
-               .antMatchers("/members/sign-in").permitAll()
+               .antMatchers("/member/**","/","/js/**","/css/**","/images/**").permitAll()
                //user권한이 있어야 요청가능
-               .antMatchers("/members/test").hasRole("USER")
+               .antMatchers("/member/test").hasRole("USER")
                //이 밖에 모든 요청에 대해서 인증필요
                .anyRequest().authenticated()
                .and()

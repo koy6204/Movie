@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/movie")
+//@RequestMapping("/movie")
 @Log4j2
 @RequiredArgsConstructor
 public class MainController {

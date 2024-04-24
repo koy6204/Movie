@@ -10,16 +10,16 @@
 </th:block>
 
 <!-- index.html 고유 스크립트 추가 -->
-<!--<th:block layout:fragment="script">-->
-<!--      <script th:src="@{/js/page/home.js}"></script>-->
-<!--</th:block>-->
+<th:block layout:fragment="script">
+      <script th:src="@{/js/register.js}"></script>
+</th:block>
 
 
 <div layout:fragment="content" class="register-container">
 
     <div class="grid">
         <div><p class="sign-up">Sign Up</p> </div>
-        <form action="https://httpbin.org/post" method="POST" class="form register">
+        <form class="form register">
 
             <div class="form__field">
                 <label for="register__username"><svg class="icon">
@@ -34,12 +34,12 @@
                 </svg><span class="hidden">Password</span></label>
                 <input id="register__password" type="password" name="password" class="form__input" placeholder="Password" required>
             </div>
-            <div class="form__field">
-                <label for="register__password"><svg class="icon">
-                    <use xlink:href="#icon-lock"></use>
-                </svg><span class="hidden">Confirm Password</span></label>
-                <input id="register__passwordCheck" type="password" name="password" class="form__input" placeholder="Confirm Password" required>
-            </div>
+<!--            <div class="form__field">-->
+<!--                <label for="register__password"><svg class="icon">-->
+<!--                    <use xlink:href="#icon-lock"></use>-->
+<!--                </svg><span class="hidden">Confirm Password</span></label>-->
+<!--                <input id="register__passwordCheck" type="password" name="password" class="form__input" placeholder="Confirm Password" required>-->
+<!--            </div>-->
             <div class="form__field">
                 <label for="register__username"><svg class="icon">
                     <use xlink:href="#icon-email"></use>
@@ -47,10 +47,8 @@
                 <input id="email" type="email" name="email" class="form__input" placeholder="email" required>
             </div>
 
-
-
             <div class="form__field">
-                <input type="submit" value="Sign Up">
+                <input type="submit" value="Sign Up" id="btn-save" >
             </div>
 
         </form>

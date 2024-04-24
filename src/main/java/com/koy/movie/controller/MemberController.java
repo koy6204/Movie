@@ -7,18 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/movie")
+@RequestMapping("/member")
 @Log4j2
 @RequiredArgsConstructor
-public class UserController {
+public class MemberController {
 
-    @GetMapping("/login")
+    @GetMapping("/sign_in")
     public String login() {
 
         return "/view/login";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/sign_up")
     public String register() {
 
         return "/view/register";
