@@ -80,7 +80,6 @@
 //             });
 //     });
 // });
-
 $(document).ready(function() {
 
     var registerForm = $('.form.register');

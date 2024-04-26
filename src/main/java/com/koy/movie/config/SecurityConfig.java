@@ -36,9 +36,9 @@ public class SecurityConfig{
                //해당 API에 대해서는 모든 요청을 허가
                .antMatchers("/member/**","/","/js/**","/css/**","/images/**").permitAll()
                //user권한이 있어야 요청가능
-               .antMatchers("/member/test").hasRole("USER")
+//               .antMatchers("/member/sign_in_proc").hasRole("USER")
                //이 밖에 모든 요청에 대해서 인증필요
-               .anyRequest().authenticated()
+//               .anyRequest().authenticated()
                .and()
                //Jwt인증을 위하여 직접 구현한 필터를 UsernamePasswordAuthenticationFilter 전에 실행
                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)

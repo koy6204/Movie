@@ -9,9 +9,9 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </th:block>
 
-<!-- index.html 고유 스크립트 추가 -->
+<!-- index.html 고유 스크립트 추가-->
 <!--<th:block layout:fragment="script">-->
-<!--      <script th:src="@{/js/main.js}"></script>-->
+<!--      <script th:src="@{/js/index.js}"></script>-->
 <!--</th:block>-->
 
 
@@ -43,11 +43,22 @@
 
     <!--    </div>-->
 
-    <div class="bgslide">
-        <div class="play_button">
-            <img src="/images/play.png">
-        </div>
+    <div class="bgslide" id="trailer-container">
+<!--        <div class="play_button">-->
+<!--            <img src="/images/play.png">-->
+<!--        </div>-->
     </div>
+
+    <div class="movie-poster" id="movie-container">
+        <!-- 영화 목록이 여기에 표시됩니다 -->
+    </div>
+
+<!--    <div class="modal" id="trailer-modal">-->
+<!--        <div class="modal-content">-->
+<!--            <span class="close" onclick="closeModal()">×</span>-->
+<!--            <iframe id="trailer-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="movie-poster">
         <h3>Popular Movies</h3>
@@ -76,6 +87,9 @@
         </div>
         <a href="#" class="view-all">View All</a>
     </div>
+
+
+
 
     <div class="movie-poster">
         <h3>Must Watch</h3>
@@ -115,25 +129,28 @@
         </video>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var $playbtn = $(".play_button");
-            $openvid = $(".video_modal");
-            $closevid = $(".closebtn");
-            $video = $(".myvideo").get(0)
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function () {-->
+<!--            var $playbtn = $(".play_button");-->
+<!--            $openvid = $(".video_modal");-->
+<!--            $closevid = $(".closebtn");-->
+<!--            $video = $(".myvideo").get(0)-->
 
-            $playbtn.click(function () {
-                $openvid.fadeIn();
-                $video.load();
-            });
-            $closevid.click(function () {
-                $openvid.fadeOut();
-            })
-        });
-    </script>
+<!--            $playbtn.click(function () {-->
+<!--                $openvid.fadeIn();-->
+<!--                $video.load();-->
+<!--            });-->
+<!--            $closevid.click(function () {-->
+<!--                $openvid.fadeOut();-->
+<!--            })-->
+<!--        });-->
+<!--    </script>-->
 
 
 </div>
 
+<th:block layout:fragment="script">
+    <script th:src="@{/js/index.js}"></script>
+</th:block>
 
 </html>
