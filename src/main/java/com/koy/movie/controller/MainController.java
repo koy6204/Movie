@@ -43,4 +43,9 @@ public class MainController {
         return "view/index";
     }
 
+    @GetMapping("/movie_reco")
+    public String movie_reco(Model model) {
+        return "view/movieReco";
+    }
+
 }

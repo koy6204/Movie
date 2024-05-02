@@ -24,4 +24,5 @@ public class Genres {
     public Genres(String name) {
         this.name = name;
     }
+
 }

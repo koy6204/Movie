@@ -17,73 +17,16 @@
 
 <div layout:fragment="content">
 
-    <!--    <div class="mainContainer">-->
-
-    <!--      <div class="main">-->
-    <!--        <div class="slider slider-for">-->
-    <!--          <div><h3>1</h3></div>-->
-    <!--          <div><h3>2</h3></div>-->
-    <!--          <div><h3>3</h3></div>-->
-    <!--          <div><h3>4</h3></div>-->
-    <!--          <div><h3>5</h3></div>-->
-    <!--        </div>-->
-    <!--        <div class="slider slider-nav">-->
-    <!--          <div><h3>1</h3></div>-->
-    <!--          <div><h3>2</h3></div>-->
-    <!--          <div><h3>3</h3></div>-->
-    <!--          <div><h3>4</h3></div>-->
-    <!--          <div><h3>5</h3></div>-->
-    <!--        </div>-->
-    <!--        <div class="action">-->
-    <!--          <a href="#" data-slide="3">go to slide 3</a>-->
-    <!--          <a href="#" data-slide="4">go to slide 4</a>-->
-    <!--          <a href="#" data-slide="5">go to slide 5</a>-->
-    <!--        </div>-->
-    <!--      </div>-->
-
-    <!--    </div>-->
-
     <div class="bgslide" id="trailer-container">
-<!--        <div class="play_button">-->
-<!--            <img src="/images/play.png">-->
-<!--        </div>-->
+
     </div>
 
-    <div class="movie-poster" id="movie-container">
-        <!-- 영화 목록이 여기에 표시됩니다 -->
-    </div>
 
-<!--    <div class="modal" id="trailer-modal">-->
-<!--        <div class="modal-content">-->
-<!--            <span class="close" onclick="closeModal()">×</span>-->
-<!--            <iframe id="trailer-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>-->
-<!--        </div>-->
-<!--    </div>-->
-
-    <div class="movie-poster">
-        <h3>Popular Movies</h3>
+    <div class="movie-poster" >
+        <h3>Popular</h3>
         <hr>
-        <div class="movie-trailer-grid">
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1 trailer-last">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
+        <div class="movie-trailer-grid" id="movie-container">
+            <!-- 영화 목록이 여기에 표시 -->
         </div>
         <a href="#" class="view-all">View All</a>
     </div>
@@ -92,60 +35,28 @@
 
 
     <div class="movie-poster">
-        <h3>Must Watch</h3>
+        <h3>Top Rated</h3>
         <hr>
-        <div class="movie-trailer-grid">
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
-            <div class="trailer1 trailer-last">
-                <a href="#">
-                    <img src="/images/a2.jpg">
-                </a>
-            </div>
+        <div class="movie-trailer-grid" id="movie-container2">
+            <!-- 영화 목록이 여기에 표시 -->
         </div>
         <a href="#" class="view-all">View All</a>
     </div>
 
 
-    <!-- Video Modal -->
-    <div class="video_modal">
-        <div class="closebtn">X</div>
-        <video id="myvideo" width="100%" height="auto" controls>
-            <source src="/video/test.mp4" type="video/mp4">
-            <source src="/video/test.mp4" type="video/ogg">
-        </video>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <span class="close-modal-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="modal-header" id="modal-video"></div>
+
+
+
+        </div>
+
+
     </div>
-
-<!--    <script type="text/javascript">-->
-<!--        $(document).ready(function () {-->
-<!--            var $playbtn = $(".play_button");-->
-<!--            $openvid = $(".video_modal");-->
-<!--            $closevid = $(".closebtn");-->
-<!--            $video = $(".myvideo").get(0)-->
-
-<!--            $playbtn.click(function () {-->
-<!--                $openvid.fadeIn();-->
-<!--                $video.load();-->
-<!--            });-->
-<!--            $closevid.click(function () {-->
-<!--                $openvid.fadeOut();-->
-<!--            })-->
-<!--        });-->
-<!--    </script>-->
-
 
 </div>
 

@@ -82,6 +82,7 @@
             });
   }
 
+
   // 선택한 영화의 예고편을 가져오는 함수
   function fetchTrailer(movieId) {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${tmdbApiKey}&language=ko-KR`)
