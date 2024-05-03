@@ -9,17 +9,14 @@
     <link rel="stylesheet" th:href="@{/css/login.css}" >
 </th:block>
 
-<!-- index.html 고유 스크립트 추가 -->
-<!--<th:block layout:fragment="script">-->
-<!--      <script th:src="@{/js/page/home.js}"></script>-->
-<!--</th:block>-->
 
 
 <div layout:fragment="content" class="login-container">
 
     <div class="grid">
         <div><p class="sign-in">Sign In</p> </div>
-        <form class="form login" action="/member/sign_in_proc" method="POST">
+<!--        <form class="form login" action="/member/sign_in_proc" method="POST">-->
+        <form class="form login">
 
             <div class="form__field">
                 <label for="login__username"><svg class="icon">
@@ -60,3 +57,8 @@
     </svg>
 
 </div>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script th:src="@{/js/login.js}"></script>
+</th:block>

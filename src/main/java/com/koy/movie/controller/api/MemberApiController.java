@@ -25,12 +25,16 @@ public class MemberApiController {
 
     @PostMapping("/sign_in_proc")
     //Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported 에러로 @RequsetBody 제거함
-    public JwtToken signIn(SignInDto signInDto) {
+    public JwtToken signIn(@RequestBody SignInDto signInDto) {
 
         System.out.println("sign in proc");
         String username = signInDto.getUsername();
         String password = signInDto.getPassword();
+        System.out.println(username);
+        System.out.println(password);
+        System.out.println("11111111111");
         JwtToken jwtToken = memberService.signIn(username, password);
+        System.out.println(jwtToken);
 
         log.info("request username = {}, password = {}",username,password);
         log.info("jwtToken accessToken = {}, refreshToken = {}",jwtToken.getAccessToken(), jwtToken.getRefreshToken());

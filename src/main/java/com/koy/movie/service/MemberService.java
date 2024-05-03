@@ -4,6 +4,7 @@ import com.koy.movie.config.JwtTokenProvider;
 import com.koy.movie.config.SecurityConfig;
 import com.koy.movie.dto.JwtToken;
 import com.koy.movie.dto.MemberDto;
+import com.koy.movie.dto.SignInDto;
 import com.koy.movie.dto.SignUpDto;
 import com.koy.movie.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,19 +34,25 @@ public class MemberService  {
 
     @Transactional
     public JwtToken signIn(String username, String password) {
+        System.out.println("222222222222");
         // 1. username + password 를 기반으로 Authentication 객체 생성
         // 이때 authentication 은 인증 여부를 확인하는 authenticated 값이 false
+
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 
+        System.out.println("33333333333333");
         // 2. 실제 검증. authenticate() 메서드를 통해 요청된 Member 에 대한 검증 진행
         // authenticate 메서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드 실행
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-
+        System.out.println("4444444444444444");
         // 3. 인증 정보를 기반으로 JWT 토큰 생성
         JwtToken jwtToken = jwtTokenProvider.generateToken(authentication);
-
+        System.out.println("5555555555555");
+        System.out.println(jwtToken);
         return jwtToken;
     }
+
+
 
     @Transactional
     public MemberDto signUp(SignUpDto signUpDto) {
