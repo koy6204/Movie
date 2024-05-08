@@ -20,17 +20,18 @@
 
 
     <div class="mypage">
-        <table>
+        <table class="mypage-point">
             <tr>
-                <td id="menu1">나의 정보</td>
-                <td id="menu2">포인트 충전</td>
+                <td class="mypage-sel" id="menu1">나의 정보</td>
+                <td class="mypage-sel" id="menu2">포인트 충전</td>
+
             </tr>
         </table>
 
         <div id="content1" class="content">
-            <h2>My Page</h2>
+
             <div class="user-info">
-                <h2>Welcome, <span sec:authentication="name">User</span>!</h2>
+                <h2><span sec:authentication="name">ㅇㅇ님</span></h2>
                 <p>Email: user@example.com</p>
                 <p>Joined: January 1, 2020</p>
             </div>
@@ -39,12 +40,46 @@
 
         <div id="content2" class="content">
 
-            <h3>현재 포인트 :</h3>
+
 
             <div class="point-charge">
-                <form action="#" method="post">
-                    <label for="point">포인트</label>
-                    <input type="number" id="point" name="point" min="0" required>
+<!--                <h3 class="current-point">현재 포인트 :</h3>-->
+                <form action="#" method="post" class="point-form">
+<!--                    <label for="point">포인트</label>-->
+<!--                    <input type="number" id="point" name="point" min="0" required>-->
+<!--                    <button type="submit">충전</button>-->
+                    <table class="point-table">
+                        <tr>
+                            <th>포인트</th>
+                            <th>판매금액</th>
+                            <th>선택</th>
+                        </tr>
+                        <tr>
+                            <td>5000P</td>
+                            <td>5000원</td>
+                            <td><input type="radio" name="point" value="5000"></td>
+                        </tr>
+                        <tr>
+                            <td>10000P</td>
+                            <td>10000원</td>
+                            <td><input type="radio" name="point" value="10000"></td>
+                        </tr>
+                        <tr>
+                            <td>20000P</td>
+                            <td>20000원</td>
+                            <td><input type="radio" name="point" value="20000"></td>
+                        </tr>
+                        <tr>
+                            <td>30000P</td>
+                            <td>30000원</td>
+                            <td><input type="radio" name="point" value="30000"></td>
+                        </tr>
+                        <tr>
+                            <td>50000P</td>
+                            <td>50000원</td>
+                            <td><input type="radio" name="point" value="50000"></td>
+                        </tr>
+                    </table>
                     <button type="submit">충전</button>
                 </form>
             </div>

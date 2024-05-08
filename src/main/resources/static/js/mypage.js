@@ -25,7 +25,7 @@ window.onload = function() {
 
     function selectMenu(selectedMenu) {
         // 모든 메뉴 항목에서 'selected' 클래스 제거
-        var menus = document.getElementsByTagName('td');
+        var menus = document.getElementsByClassName('mypage-sel');
         for (var i = 0; i < menus.length; i++) {
             menus[i].classList.remove('selected');
         }
@@ -39,3 +39,4 @@ window.onload = function() {
     document.getElementById('content1').style.display = 'block';
     selectMenu(menu1);
 }
+
