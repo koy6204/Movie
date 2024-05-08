@@ -39,6 +39,13 @@
     width: 100%;
 
 }
+
+.movie-poster-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 #movieReco-btn {
     font-size: 26px;
     font-weight: bold;

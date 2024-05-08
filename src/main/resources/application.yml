@@ -36,4 +36,5 @@ spring:
     cache: false
 
 jwt:
-  secret: r3j3r83r2hfsdfsnvalwar2093urahaz8v89wr2b9szdf8zwfozsdf8bwfilzsdfil3f2sdf3
+  secret:
+    key: qwrmlasfmlqw2491u4291urjeiqowfjkwklfnlksdnfi13fnou3nounf13

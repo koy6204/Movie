@@ -31,7 +31,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -39,7 +40,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.0'
-	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time'
+//	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time'
 
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
@@ -54,7 +55,14 @@ dependencies {
 
 	//스프링시큐리티
 	implementation "org.springframework.boot:spring-boot-starter-security"
+	//타임리프
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//
 	implementation 'org.springframework.security:spring-security-test'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
+
+	//타임리프 레이아웃
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.1.0'
 
 	//JWT
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'

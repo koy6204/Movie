@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layouts/layout1}">
+
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mypage.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가-->
+<!--<th:block layout:fragment="script">-->
+<!--      <script th:src="@{/js/index.js}"></script>-->
+<!--</th:block>-->
+
+
+<div layout:fragment="content">
+
+
+    <div class="mypage">
+        <table>
+            <tr>
+                <td id="menu1">나의 정보</td>
+                <td id="menu2">포인트 충전</td>
+            </tr>
+        </table>
+
+        <div id="content1" class="content">
+            <h2>My Page</h2>
+            <div class="user-info">
+                <h2>Welcome, <span sec:authentication="name">User</span>!</h2>
+                <p>Email: user@example.com</p>
+                <p>Joined: January 1, 2020</p>
+            </div>
+        </div>
+
+
+        <div id="content2" class="content">
+
+            <h3>현재 포인트 :</h3>
+
+            <div class="point-charge">
+                <form action="#" method="post">
+                    <label for="point">포인트</label>
+                    <input type="number" id="point" name="point" min="0" required>
+                    <button type="submit">충전</button>
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <!--    <div id="content3" class="content">Content for Menu 3</div>-->
+
+
+    <!--      <div class="actions">-->
+    <!--        <button>Change Password</button>-->
+    <!--        <button>Update Profile Picture</button>-->
+    <!--      </div>-->
+</div>
+
+
+<th:block layout:fragment="script">
+    <script th:src="@{/js/mypage.js}"></script>
+</th:block>
+
+</html>

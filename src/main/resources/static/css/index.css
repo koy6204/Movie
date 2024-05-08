@@ -50,7 +50,9 @@ img {
 
 }
 .movie-trailer-grid{
-    padding-top: 30px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .trailer1{
@@ -89,7 +91,7 @@ img {
     float: right;
 
     padding: 10px 15px;
-    margin-right: 40px;
+
     background-color: #262626;
     color: #fff;
     border-radius: 5px;

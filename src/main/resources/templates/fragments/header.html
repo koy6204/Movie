@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <!--<div th:fragment="headerFragment" class="header">-->
 <!--    <a href="#home">Home</a>-->
@@ -19,10 +20,23 @@
             </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">New Movies</a></li>
+                        <li><a href="/movie/movieReco">영화추천</a></li>
                         <li><a href="#">UpComing</a></li>
-                        <li><a href="#">Reviews</a></li>
-                        <li><a href="/member/sign_in">Login</a></li>
+                        <li><a href="/mypage">mypage</a></li>
+
+
+                        <li>
+                            <a href="/member/login">Login</a>
+                        </li>
+
+
+
+
+
+
+
+
+
                     </ul>
                 </div>
             </div>

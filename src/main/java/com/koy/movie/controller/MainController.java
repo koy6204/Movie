@@ -20,32 +20,19 @@ public class MainController {
     private MovieService movieService;
 
     @GetMapping("/")
-    public String main(Model model) {
-
-//        JSONObject popularMovies = movieService.getPopularMovies();
-//        model.addAttribute("popularMovies", popularMovies.getJSONArray("results"));
-//
-//        // 상위 10개의 인기 영화에 대한 비디오 정보를 가져옵니다.
-//        JSONArray movieIDs = new JSONArray();
-//        for (int i = 0; i < 10; i++) {
-//            int movieId = popularMovies.getJSONArray("results").getJSONObject(i).getInt("id");
-//            JSONObject movieVideos = movieService.getMovieVideos(movieId);
-//            if (movieVideos.getJSONArray("results").length() > 0) {
-//                String videoKey = movieVideos.getJSONArray("results").getJSONObject(0).getString("key");
-//                movieIDs.put(videoKey);
-//            }
-//        }
-//        //tmdb api 호출
-//        model.addAttribute("movieIDs",movieIDs);
-//
-//        System.out.println(movieIDs);
+    public String main() {
 
         return "view/index";
     }
 
-    @GetMapping("/movie_reco")
-    public String movie_reco(Model model) {
-        return "view/movieReco";
-    }
+//    @GetMapping("/movie_reco")
+//    public String movie_reco() {
+//
+//        return "view/movieReco";
+//    }
 
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/view/mypage";
+    }
 }

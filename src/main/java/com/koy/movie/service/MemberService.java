@@ -1,73 +1,79 @@
 package com.koy.movie.service;
 
-import com.koy.movie.config.JwtTokenProvider;
-import com.koy.movie.config.SecurityConfig;
-import com.koy.movie.dto.JwtToken;
-import com.koy.movie.dto.MemberDto;
-import com.koy.movie.dto.SignInDto;
-import com.koy.movie.dto.SignUpDto;
+import com.koy.movie.config.JwtUtil;
+import com.koy.movie.config.UserRoleEnum;
+import com.koy.movie.dto.LoginRequestDto;
+import com.koy.movie.dto.SignUpRequestDto;
+import com.koy.movie.model.Member;
 import com.koy.movie.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 
 @Service
-@RequiredArgsConstructor
-@Transactional(readOnly = true)
 @Slf4j
-public class MemberService  {
+@RequiredArgsConstructor
+public class MemberService {
 
     private final MemberRepository memberRepository;
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-    private final JwtTokenProvider jwtTokenProvider;
+    private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
+    /*회원 가입*/
     @Transactional
-    public JwtToken signIn(String username, String password) {
-        System.out.println("222222222222");
-        // 1. username + password 를 기반으로 Authentication 객체 생성
-        // 이때 authentication 은 인증 여부를 확인하는 authenticated 값이 false
+    public void signUp(SignUpRequestDto requestDto) {
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        /*아이디*/
+        String username = requestDto.getUsername();
 
-        System.out.println("33333333333333");
-        // 2. 실제 검증. authenticate() 메서드를 통해 요청된 Member 에 대한 검증 진행
-        // authenticate 메서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드 실행
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-        System.out.println("4444444444444444");
-        // 3. 인증 정보를 기반으로 JWT 토큰 생성
-        JwtToken jwtToken = jwtTokenProvider.generateToken(authentication);
-        System.out.println("5555555555555");
-        System.out.println(jwtToken);
-        return jwtToken;
+        String email = requestDto.getEmail();
+        /*패스워드*/
+        String password = passwordEncoder.encode(requestDto.getPassword());
+        /*유저 권한*/
+        UserRoleEnum role = UserRoleEnum.valueOf(requestDto.getRole());
+
+        Member member = new Member(username, password, role);
+        memberRepository.save(member);
+
     }
 
-
-
+    /*로그인*/
     @Transactional
-    public MemberDto signUp(SignUpDto signUpDto) {
+    public void login(LoginRequestDto requestDto, HttpServletResponse response) {
 
-        if (memberRepository.existsByUsername(signUpDto.getUsername())) {
-            throw new IllegalArgumentException("이미 사용 중인 사용자 이름입니다");
+        Optional<Member> optionalMember = memberRepository.findByUsername(requestDto.getUsername());
 
+        if (optionalMember.isEmpty()) {
+            log.warn("회원이 존재하지 않음");
+            throw new IllegalArgumentException("회원이 존재하지 않음");
         }
 
-        //pwd 암호화
-        String encodedPassword = passwordEncoder.encode(signUpDto.getPassword());
-        List<String> roles = new ArrayList<>();
-        roles.add("USER"); //권한부여
+        Member member = optionalMember.get();
 
-        return MemberDto.toDto(memberRepository.save(signUpDto.toEntity(encodedPassword, roles)));
+        /*비밀번호 다름.*/
+        if (!passwordEncoder.matches(requestDto.getPassword(), member.getPassword())) {
+            log.warn("비밀번호가 일치하지 않습니다.");
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+
+        /*토큰을 쿠키로 발급 및 응답에 추가*/
+        Cookie cookie = new Cookie(JwtUtil.AUTHORIZATION_HEADER,
+                jwtUtil.createToken(member.getUsername(), member.getRole()));
+        cookie.setMaxAge(7 * 24 * 60 * 60); // 7일 동안 유효
+        cookie.setPath("/");
+        cookie.setDomain("localhost");
+        cookie.setSecure(false);
+
+        response.addCookie(cookie);
+
     }
 
 }
