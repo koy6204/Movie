@@ -42,7 +42,6 @@ public class MovieService {
                         (e1, e2) -> e2, LinkedHashMap::new
                 ));
     }
-
     //장르의 출현 빈도 파악
     public HashMap<Genres, Integer> getPickedGenres(RecoDto recoDto) {
         HashMap<Genres, Integer> pickedGenres = new HashMap<>();

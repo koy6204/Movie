@@ -18,7 +18,6 @@ public class UserDetailsImpl implements UserDetails {
     private final String password;
     private final String username;
 
-
     public UserDetailsImpl(Member member, String password, String username) {
         this.member = member;
         this.password = password;
